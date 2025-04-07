@@ -29,4 +29,24 @@ public class Order {
             System.out.println("Maximum limit of products: " + Order.MAX_PRODUCTS);
         }
     }
+
+    public double calculateTotal() {
+        double total = 0;
+        for (int i = 0; i < productCount; i++) {
+            var product = this.products[i];
+            total += this.products[i].getPrice(); // total = total + product.getPrice()
+        }
+        return total;
+    }
+
+    public void showOrder() {
+        System.out.println("Order ID: " + this.id);
+        var totalOrder = this.calculateTotal();
+        System.out.println("\tOrder total: " + totalOrder);
+        System.out.println("\tProduct Order: ");
+        for (int i = 0; i < productCount; i++) {
+            System.out.println("\t\t" + this.products[i]);
+
+        }
+    }
 }
